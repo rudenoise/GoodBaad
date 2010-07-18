@@ -1,0 +1,16 @@
+<Files .htaccess>
+
+order allow,deny
+
+deny from all
+
+</Files>
+
+ErrorDocument 404 /errors/error404.htm
+
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]
+</IfModule>
